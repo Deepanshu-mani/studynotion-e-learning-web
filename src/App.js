@@ -40,6 +40,8 @@ import Dashboard from "./pages/Dashboard";
 import ViewCourse from "./pages/ViewCourse";
 import Error from './pages/Error';
 
+import { ReactLenis } from '@studio-freight/react-lenis';
+
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -57,8 +59,9 @@ function App() {
 
 
   return (
-    <div className='w-screen min-h-screen bg-richblack-900 flex flex-col font-inter'>
-      <Navbar />
+    <ReactLenis root>
+      <div className='w-screen min-h-screen bg-richblack-900 flex flex-col font-inter'>
+        <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
@@ -169,7 +172,8 @@ function App() {
         {/* 404 Page */}
         <Route path="*" element={<Error />} />
       </Routes>
-    </div>
+      </div>
+    </ReactLenis>
   );
 }
 
